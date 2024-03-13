@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 class BookSlotScreen extends StatefulWidget {
@@ -10,12 +9,19 @@ class BookSlotScreen extends StatefulWidget {
 }
 
 class _BookSlotScreenState extends State<BookSlotScreen> {
+  String selectedTime = '';
+  List<String> timeSlots = [
+    '12:30 AM', '01:00 PM', '01:30 PM',
+    '02:00 PM', '02:30 PM', '03:00 PM',
+    '03:30 PM', '04:00 PM', '04:30 PM',
+  ];
   @override
-   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.white,
-      child: SingleChildScrollView(
-        child: Column(
+  Widget build(BuildContext context) {
+    return Material(
+      child: Container(
+        color: Colors.white,
+        child: SingleChildScrollView(
+          child: Column(
             children: [
               Container(
                 width: Get.width,
@@ -38,19 +44,18 @@ class _BookSlotScreenState extends State<BookSlotScreen> {
                       Padding(
                         padding: const EdgeInsets.only(left: 20),
                         child: GestureDetector(
-                          onTap: () => Get.back(),
-                          child: const Icon(Icons.arrow_back, size: 30, color: Colors.white)
-                        ),
+                            onTap: () => Get.back(),
+                            child: const Icon(Icons.arrow_back,
+                                size: 30, color: Colors.white)),
                       ),
                       const Spacer(),
                       const Text(
                         'Book Your Time Slot',
                         style: TextStyle(
-                          decoration: TextDecoration.none,
-                          color: Colors.white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold
-                        ),
+                            decoration: TextDecoration.none,
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold),
                       ),
                       const Spacer(),
                     ],
@@ -65,143 +70,138 @@ class _BookSlotScreenState extends State<BookSlotScreen> {
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(20),
                     boxShadow: [
-                        BoxShadow(
+                      BoxShadow(
                           color: Colors.grey.shade400,
                           offset: const Offset(0, 0),
-                          blurRadius: 5
-                        )
-                      ],
+                          blurRadius: 5)
+                    ],
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
+                    padding:
+                        const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
                     child: Column(
                       children: [
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                                Container(
-                                width: 110,
-                                height: 165,
-                                clipBehavior: Clip.antiAlias,
-                                decoration: BoxDecoration(
-                                  border: Border.all(color: Colors.black),
-                                  borderRadius: BorderRadius.circular(30),
-                                ),
-                                child: const Icon(Icons.person, size: 50),
+                            Container(
+                              width: 110,
+                              height: 165,
+                              clipBehavior: Clip.antiAlias,
+                              decoration: BoxDecoration(
+                                border: Border.all(color: Colors.black),
+                                borderRadius: BorderRadius.circular(30),
                               ),
-                              Padding(
-                                padding: const EdgeInsets.only(left: 25.0, top: 20),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    const Text(
-                                      'Dr. Gautam Singh',
-                                      style: TextStyle(
+                              child: const Icon(Icons.person, size: 50),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 25.0, top: 20),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  const Text(
+                                    'Dr. Gautam Singh',
+                                    style: TextStyle(
                                         decoration: TextDecoration.none,
                                         color: Colors.black,
                                         fontSize: 20,
-                                        fontWeight: FontWeight.bold
-                                      ),
-                                    ),
-                                    const SizedBox(height: 10),
-                                    const Text(
-                                      'MBBS,MD',
-                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  const SizedBox(height: 10),
+                                  const Text(
+                                    'MBBS,MD',
+                                    style: TextStyle(
                                         decoration: TextDecoration.none,
                                         color: Colors.grey,
                                         fontSize: 16,
-                                        fontWeight: FontWeight.normal
-                                      ),
-                                    ),
-                                    const SizedBox(height: 10),
-                                    Row(
-                                      children: [
-                                        Container(
-                                          decoration: BoxDecoration(
-                                            color: Colors.grey.shade200,
-                                            borderRadius: BorderRadius.circular(12),
-                                            boxShadow: [
-                                              BoxShadow(
+                                        fontWeight: FontWeight.normal),
+                                  ),
+                                  const SizedBox(height: 10),
+                                  Row(
+                                    children: [
+                                      Container(
+                                        decoration: BoxDecoration(
+                                          color: Colors.grey.shade200,
+                                          borderRadius: BorderRadius.circular(12),
+                                          boxShadow: [
+                                            BoxShadow(
                                                 color: Colors.grey.shade200,
                                                 offset: const Offset(0, 0),
-                                                blurRadius: 5
-                                              )
-                                            ],
-                                          ),
-                                          child: const Padding(
-                                            padding: EdgeInsets.all(10.0),
-                                            child: Text(
-                                              'Physiotherapist',
-                                              style: TextStyle(
+                                                blurRadius: 5)
+                                          ],
+                                        ),
+                                        child: const Padding(
+                                          padding: EdgeInsets.all(10.0),
+                                          child: Text(
+                                            'Physiotherapist',
+                                            style: TextStyle(
                                                 decoration: TextDecoration.none,
                                                 color: Colors.black,
                                                 fontSize: 16,
-                                                fontWeight: FontWeight.w600
-                                              ),
-                                            ),
+                                                fontWeight: FontWeight.w600),
                                           ),
                                         ),
-                                        // const SizedBox(width: 15),
-                                        // Container(
-                                        //   color: Colors.grey,
-                                        //   height: 30,
-                                        //   width: 1,
-                                        // ),
-                                      ],
-                                    ),
-                                    // rating
-                                    // Container(
-                                    //       decoration: BoxDecoration(
-                                    //         color: Colors.grey.shade200,
-                                    //         borderRadius: BorderRadius.circular(12),
-                                    //         boxShadow: [
-                                    //           BoxShadow(
-                                    //             color: Colors.grey.shade200,
-                                    //             offset: const Offset(0, 0),
-                                    //             blurRadius: 5
-                                    //           )
-                                    //         ],
-                                    //       ),
-                                    //       child: const Padding(
-                                    //         padding: EdgeInsets.all(10.0),
-                                    //         child: Row(
-                                    //           children: [
-                                    //             Icon(
-                                    //               Icons.star_outline_rounded,
-                                    //               color: Colors.amber,
-                                    //             ),
-                                    //             Text(
-                                    //               '4.6',
-                                    //               style: TextStyle(
-                                    //                 decoration: TextDecoration.none,
-                                    //                 color: Colors.black,
-                                    //                 fontSize: 16,
-                                    //                 fontWeight: FontWeight.w600
-                                    //               ),
-                                    //             ),
-                                    //           ],
-                                    //         ),
-                                    //       ),
-                                    //     ),
-                                    const SizedBox(height: 10),
-                                    const Row(
-                                      children: [
-                                        Icon(Icons.medical_information_outlined),
-                                        SizedBox(width: 10),
-                                        Text(
-                                          'Exp: 8 years+',
-                                          style: TextStyle(
+                                      ),
+                                      // const SizedBox(width: 15),
+                                      // Container(
+                                      //   color: Colors.grey,
+                                      //   height: 30,
+                                      //   width: 1,
+                                      // ),
+                                    ],
+                                  ),
+                                  // rating
+                                  // Container(
+                                  //       decoration: BoxDecoration(
+                                  //         color: Colors.grey.shade200,
+                                  //         borderRadius: BorderRadius.circular(12),
+                                  //         boxShadow: [
+                                  //           BoxShadow(
+                                  //             color: Colors.grey.shade200,
+                                  //             offset: const Offset(0, 0),
+                                  //             blurRadius: 5
+                                  //           )
+                                  //         ],
+                                  //       ),
+                                  //       child: const Padding(
+                                  //         padding: EdgeInsets.all(10.0),
+                                  //         child: Row(
+                                  //           children: [
+                                  //             Icon(
+                                  //               Icons.star_outline_rounded,
+                                  //               color: Colors.amber,
+                                  //             ),
+                                  //             Text(
+                                  //               '4.6',
+                                  //               style: TextStyle(
+                                  //                 decoration: TextDecoration.none,
+                                  //                 color: Colors.black,
+                                  //                 fontSize: 16,
+                                  //                 fontWeight: FontWeight.w600
+                                  //               ),
+                                  //             ),
+                                  //           ],
+                                  //         ),
+                                  //       ),
+                                  //     ),
+                                  const SizedBox(height: 10),
+                                  const Row(
+                                    children: [
+                                      Icon(Icons.medical_information_outlined),
+                                      SizedBox(width: 10),
+                                      Text(
+                                        'Exp: 8 years+',
+                                        style: TextStyle(
                                             decoration: TextDecoration.none,
                                             color: Colors.black,
                                             fontSize: 16,
-                                            fontWeight: FontWeight.w600
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              )
+                                            fontWeight: FontWeight.w600),
+                                      )
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            )
                           ],
                         ),
                         const SizedBox(height: 30),
@@ -215,27 +215,24 @@ class _BookSlotScreenState extends State<BookSlotScreen> {
                         SizedBox(
                           width: Get.width * 0.9,
                           child: RichText(
-                                text: const TextSpan(
-                                  text: 'Languages Known -',
-                                  style: TextStyle(
+                            text: const TextSpan(
+                                text: 'Languages Known -',
+                                style: TextStyle(
                                     decoration: TextDecoration.none,
-                                      color: Colors.black,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.normal
-                                    ),
-                                    children: <TextSpan>[
-                                      TextSpan(
-                                        text: ' English, Tamil, Hindi',
-                                        style: TextStyle(
-                                          decoration: TextDecoration.none,
-                                          color: Colors.grey, 
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.normal
-                                        ),
-                                      )
-                                    ]
-                                  ),
-                              ),
+                                    color: Colors.black,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.normal),
+                                children: <TextSpan>[
+                                  TextSpan(
+                                    text: ' English, Tamil, Hindi',
+                                    style: TextStyle(
+                                        decoration: TextDecoration.none,
+                                        color: Colors.grey,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.normal),
+                                  )
+                                ]),
+                          ),
                         ),
                       ],
                     ),
@@ -251,10 +248,9 @@ class _BookSlotScreenState extends State<BookSlotScreen> {
                     borderRadius: BorderRadius.circular(20),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.grey.shade400,
-                        offset: const Offset(0, 0),
-                        blurRadius: 5
-                      )
+                          color: Colors.grey.shade400,
+                          offset: const Offset(0, 0),
+                          blurRadius: 5)
                     ],
                   ),
                   child: Column(
@@ -267,11 +263,10 @@ class _BookSlotScreenState extends State<BookSlotScreen> {
                             const Text(
                               'Select Schedule',
                               style: TextStyle(
-                                decoration: TextDecoration.none,
-                                color: Colors.black,
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold
-                              ),
+                                  decoration: TextDecoration.none,
+                                  color: Colors.black,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold),
                             ),
                             const Spacer(),
                             Container(
@@ -280,10 +275,9 @@ class _BookSlotScreenState extends State<BookSlotScreen> {
                                 borderRadius: BorderRadius.circular(12),
                                 boxShadow: [
                                   BoxShadow(
-                                    color: Colors.grey.shade200,
-                                    offset: const Offset(0, 0),
-                                    blurRadius: 5
-                                  )
+                                      color: Colors.grey.shade200,
+                                      offset: const Offset(0, 0),
+                                      blurRadius: 5)
                                 ],
                               ),
                               child: const Padding(
@@ -299,11 +293,10 @@ class _BookSlotScreenState extends State<BookSlotScreen> {
                                     Text(
                                       'Thu 05 Nov, 2022',
                                       style: TextStyle(
-                                        decoration: TextDecoration.none,
-                                        color: Colors.black,
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.normal
-                                      ),
+                                          decoration: TextDecoration.none,
+                                          color: Colors.black,
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.normal),
                                     ),
                                   ],
                                 ),
@@ -322,21 +315,19 @@ class _BookSlotScreenState extends State<BookSlotScreen> {
                   ),
                 ),
               ),
-              
               const SizedBox(height: 30),
-               SizedBox(
+              SizedBox(
                 width: Get.width * 0.9,
-                height: 200,
+                // height: 200,
                 child: Container(
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(20),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.grey.shade400,
-                        offset: const Offset(0, 0),
-                        blurRadius: 5
-                      )
+                          color: Colors.grey.shade400,
+                          offset: const Offset(0, 0),
+                          blurRadius: 5)
                     ],
                   ),
                   child: Column(
@@ -349,11 +340,10 @@ class _BookSlotScreenState extends State<BookSlotScreen> {
                             const Text(
                               'Available Slots',
                               style: TextStyle(
-                                decoration: TextDecoration.none,
-                                color: Colors.black,
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold
-                              ),
+                                  decoration: TextDecoration.none,
+                                  color: Colors.black,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold),
                             ),
                             const Spacer(),
                             Container(
@@ -362,10 +352,9 @@ class _BookSlotScreenState extends State<BookSlotScreen> {
                                 borderRadius: BorderRadius.circular(12),
                                 boxShadow: [
                                   BoxShadow(
-                                    color: Colors.grey.shade200,
-                                    offset: const Offset(0, 0),
-                                    blurRadius: 5
-                                  )
+                                      color: Colors.grey.shade200,
+                                      offset: const Offset(0, 0),
+                                      blurRadius: 5)
                                 ],
                               ),
                               child: const Padding(
@@ -373,15 +362,63 @@ class _BookSlotScreenState extends State<BookSlotScreen> {
                                 child: Text(
                                   '7 slots available',
                                   style: TextStyle(
-                                    decoration: TextDecoration.none,
-                                    color: Color.fromARGB(255, 37, 112, 39),
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.normal
-                                  ),
+                                      decoration: TextDecoration.none,
+                                      color: Color.fromARGB(255, 37, 112, 39),
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.normal),
                                 ),
                               ),
                             ),
                           ],
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      const Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 0),
+                        child: TimeSlotsScreen(),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
+                        child: GridView.count(
+                          crossAxisCount: 3, // Number of items per row
+                          mainAxisSpacing: 20,
+                          crossAxisSpacing: 20,
+                          childAspectRatio: 1.8, // Aspect ratio of each item
+                          shrinkWrap: true, // Allow the grid to fit into the viewport
+                          physics: const NeverScrollableScrollPhysics(), // Disable scrolling
+                          children: List.generate(
+                            timeSlots.length,
+                            (index) => InkWell(
+                              onTap: () {
+                                setState(() {
+                                  selectedTime = timeSlots[index];
+                                });
+                              },
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: selectedTime == timeSlots[index]
+                                  ? const Color.fromARGB(255, 238, 152, 152)
+                                  : Colors.transparent,
+                                  border: Border.all(
+                                    color: selectedTime == timeSlots[index]
+                                    ? const Color.fromARGB(255, 238, 152, 152)
+                                    : Colors.grey,
+                                  ),
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
+                                child: Center(
+                                  child: Text(
+                                    timeSlots[index],
+                                    style: TextStyle(
+                                      color: selectedTime == timeSlots[index]
+                                      ? Colors.white
+                                      : Colors.black,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
                         ),
                       ),
                       const SizedBox(height: 30),
@@ -389,7 +426,6 @@ class _BookSlotScreenState extends State<BookSlotScreen> {
                   ),
                 ),
               ),
-              
               const SizedBox(height: 40),
               SizedBox(
                 width: Get.width * 0.9,
@@ -399,12 +435,14 @@ class _BookSlotScreenState extends State<BookSlotScreen> {
                     // Add your next button onPressed event here
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blueGrey, // Color of the button
+                    backgroundColor: const Color.fromARGB(
+                        255, 5, 45, 132), // Color of the button
                     foregroundColor: Colors.white, // Color of the text
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20),
                     ),
-                    padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
                   ),
                   child: const Text(
                     'Done',
@@ -412,9 +450,10 @@ class _BookSlotScreenState extends State<BookSlotScreen> {
                   ),
                 ),
               ),
-              const SizedBox(height: 30),
+              const SizedBox(height: 40),
             ],
           ),
+        ),
       ),
     );
   }
@@ -485,99 +524,203 @@ class _CalendarState extends State<Calendar> {
   Widget build(BuildContext context) {
     return Material(
       child: Container(
-        color: Colors.white,
-        height: 90,
-        child: ListView.separated(
-        separatorBuilder: (BuildContext context, int index) {
-          return const SizedBox(width: 30);
-        },
-        itemCount: 365,
-        controller: scrollController,
-        scrollDirection: Axis.horizontal,
-        itemBuilder: (BuildContext context, int index) {
-          return InkWell(
-            onTap: () {
-              setState(() {
-                currentDateSelectedIndex = index;
-                selectedDate =
-                    DateTime.now().add(Duration(days: index));
-              });
+          color: Colors.white,
+          height: 90,
+          child: ListView.separated(
+            separatorBuilder: (BuildContext context, int index) {
+              return const SizedBox(width: 30);
             },
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 1),
+            itemCount: 365,
+            controller: scrollController,
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (BuildContext context, int index) {
+              return InkWell(
+                onTap: () {
+                  setState(() {
+                    currentDateSelectedIndex = index;
+                    selectedDate = DateTime.now().add(Duration(days: index));
+                  });
+                },
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 1),
+                  child: Container(
+                    height: 80,
+                    width: 60,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                        boxShadow: [
+                          BoxShadow(
+                              color: Colors.grey.shade400,
+                              offset: const Offset(0, 0),
+                              blurRadius: 5)
+                        ],
+                        color: currentDateSelectedIndex == index
+                            ? const Color.fromARGB(255, 238, 152, 152)
+                            : Colors.white),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        // if show month on top
+                        // Text(
+                        //   listOfMonths[DateTime.now()
+                        //     .add(Duration(days: index)).month - 1].toString(),
+                        //   style: TextStyle(
+                        //       fontSize: 16,
+                        //       color: currentDateSelectedIndex == index
+                        //           ? Colors.white
+                        //           : Colors.grey),
+                        // ),
+                        Text(
+                          listOfDays[DateTime.now()
+                                      .add(Duration(days: index))
+                                      .weekday -
+                                  1]
+                              .toString(),
+                          style: TextStyle(
+                              fontSize: 16,
+                              color: currentDateSelectedIndex == index
+                                  ? Colors.white
+                                  : Colors.grey),
+                        ),
+                        const SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          DateTime.now()
+                              .add(Duration(days: index))
+                              .day
+                              .toString(),
+                          style: TextStyle(
+                              fontSize: 22,
+                              fontWeight: FontWeight.w700,
+                              color: currentDateSelectedIndex == index
+                                  ? Colors.white
+                                  : Colors.grey),
+                        ),
+                        const SizedBox(
+                          height: 5,
+                        ),
+
+                        // if day show on bottom
+                        // Text(
+                        //   listOfDays[DateTime.now()
+                        //     .add(Duration(days: index)).weekday - 1].toString(),
+                        //   style: TextStyle(
+                        //       fontSize: 16,
+                        //       color: currentDateSelectedIndex == index
+                        //           ? Colors.white
+                        //           : Colors.grey),
+                        // ),
+                      ],
+                    ),
+                  ),
+                ),
+              );
+            },
+          )),
+    );
+  }
+}
+
+//
+class TimeSlotsScreen extends StatefulWidget {
+  const TimeSlotsScreen({super.key});
+
+  @override
+  // ignore: library_private_types_in_public_api
+  _TimeSlotsScreenState createState() => _TimeSlotsScreenState();
+}
+
+class _TimeSlotsScreenState extends State<TimeSlotsScreen> {
+  String _selectedTime = 'Morning'; // Default selected time
+
+  void _selectTime(String time) {
+    setState(() {
+      _selectedTime = time;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Container(
+        height: 60,
+        decoration: BoxDecoration(
+          color: Colors.grey.shade200,
+          borderRadius: BorderRadius.circular(18),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.5),
+              spreadRadius: 2,
+              blurRadius: 7,
+              offset: const Offset(0, 0), // changes position of shadow
+            ),
+          ],
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            InkWell(
+              onTap: () => _selectTime('Morning'),
               child: Container(
-                height: 80,
-                width: 60,
-                alignment: Alignment.center,
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12),
-                    boxShadow: [
-                      BoxShadow(
-                          color: Colors.grey.shade400,
-                          offset: const Offset(0, 0),
-                          blurRadius: 5)
-                    ],
-                    color: currentDateSelectedIndex == index
-                        ? const Color.fromARGB(255, 238, 152, 152)
-                        : Colors.white),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    // if show month on top
-                    // Text(
-                    //   listOfMonths[DateTime.now()
-                    //     .add(Duration(days: index)).month - 1].toString(),
-                    //   style: TextStyle(
-                    //       fontSize: 16,
-                    //       color: currentDateSelectedIndex == index
-                    //           ? Colors.white
-                    //           : Colors.grey),
-                    // ),
-                    Text(
-                      listOfDays[DateTime.now()
-                        .add(Duration(days: index)).weekday - 1].toString(),
-                      style: TextStyle(
-                          fontSize: 16,
-                          color: currentDateSelectedIndex == index
-                              ? Colors.white
-                              : Colors.grey),
-                    ),
-                    const SizedBox(
-                      height: 5,
-                    ),
-                    Text(
-                      DateTime.now()
-                          .add(Duration(days: index))
-                          .day
-                          .toString(),
-                      style: TextStyle(
-                          fontSize: 22,
-                          fontWeight: FontWeight.w700,
-                          color: currentDateSelectedIndex == index
-                              ? Colors.white
-                              : Colors.grey),
-                    ),
-                    const SizedBox(
-                      height: 5,
-                    ),
-              
-                    // if day show on bottom
-                    // Text(
-                    //   listOfDays[DateTime.now()
-                    //     .add(Duration(days: index)).weekday - 1].toString(),
-                    //   style: TextStyle(
-                    //       fontSize: 16,
-                    //       color: currentDateSelectedIndex == index
-                    //           ? Colors.white
-                    //           : Colors.grey),
-                    // ),
-                  ],
+                  color: _selectedTime == 'Morning'
+                      ? Colors.grey.shade100
+                      : Colors.transparent,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: const Text(
+                  'Morning',
+                  style: TextStyle(
+                    color: Colors.black,
+                  ),
                 ),
               ),
             ),
-          );
-        },
-      )),
+            InkWell(
+              onTap: () => _selectTime('Afternoon'),
+              child: Container(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+                decoration: BoxDecoration(
+                  color: _selectedTime == 'Afternoon'
+                      ? Colors.grey.shade100
+                      : Colors.transparent,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: const Text(
+                  'Afternoon',
+                  style: TextStyle(
+                    color: Colors.black,
+                  ),
+                ),
+              ),
+            ),
+            InkWell(
+              onTap: () => _selectTime('Evening'),
+              child: Container(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+                decoration: BoxDecoration(
+                  color: _selectedTime == 'Evening'
+                      ? Colors.grey.shade100
+                      : Colors.transparent,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: const Text(
+                  'Evening',
+                  style: TextStyle(
+                    color: Colors.black,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
