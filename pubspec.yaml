@@ -37,6 +37,8 @@ dependencies:
   cupertino_icons: ^1.0.6
   get: 
   country_code_picker: ^3.0.0
+  flutter_neat_and_clean_calendar: ^0.3.15+35
+  hexcolor: ^3.0.0
   fluentui_system_icons: 
 
 dev_dependencies:
