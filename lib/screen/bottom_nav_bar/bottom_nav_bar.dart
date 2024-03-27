@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:medical_app_anurag/screen/bottom_nav_bar/home/home_screen.dart';
+import 'package:medical_app_anurag/screen/bottom_nav_bar/home/home_screen2.dart';
 import 'package:medical_app_anurag/screen/bottom_nav_bar/menu/menu_screen.dart';
 import 'package:medical_app_anurag/screen/bottom_nav_bar/pills/pills_screen.dart';
 import 'package:medical_app_anurag/screen/bottom_nav_bar/wallet/wallet_screen.dart';
@@ -17,7 +18,8 @@ class _BottomNavigationBarScreenState
     extends State<BottomNavigationBarScreen> {
   int _selectedIndex = 0;
   static const List<Widget> _widgetOptionsForStudents = <Widget>[
-    HomeScreen(),
+    // HomeScreen(),
+    HomeScreen2(),
     WalletScreen(),
     PillsScreen(),
     MenuScreen(),
